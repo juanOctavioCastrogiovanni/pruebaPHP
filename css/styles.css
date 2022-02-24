@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.navbar{
+    background-color: black;
+    overflow: hidden;
+
+}
+
+.logo{
+    margin: 30px;
+    width: 100px;
+}
+
+.div-header{
+    width: 70%;
+}
+
+.menu {
+    color:white;
+}
+
+.caja1{
+    float: left;
+    width: 49%;
+}
+
+.caja2{
+    float: right;
+    margin-top: 75px;
+    width: 30%;
+}
+
+.margin30{
+    margin: 30px;
+}
+
+ul{
+    list-style:none;
+}
+
+.panel{
+    margin: auto auto;
+    width: 80%;
+}
+
+.cuerpo{
+    margin-top: 100px;
+}
+
+.card > img{
+    object-fit: none;
+    width: 300px;
+	height: 300px;
+}
+
+.card{
+    width: 350px;
+    float: left;
+    overflow: hidden;
+    
+}
+
+.card > h2{
+    margin-top: -30px;
+}
+
+
