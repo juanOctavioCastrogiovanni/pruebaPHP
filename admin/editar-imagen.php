@@ -1,5 +1,4 @@
 <?php
-$admin = TRUE;
 include("../includes/header.php");
 ?>
 <div class="principal size">

@@ -47,7 +47,7 @@ ul{
 
 .cuerpo{
     margin: 70px 0 70px 0;
-    min-height: 500px;
+    min-height: 600px;
 }
 
 .card > div > a >img{
@@ -160,7 +160,7 @@ h1{
 background-image: url("../recursos/fondo1.jpg");
 background-position-y: -200px;
 background-size: 1920px;
-min-height: 500px;
+min-height: 600px;
 padding: 100px;
 }
 
@@ -328,8 +328,12 @@ table{
     overflow: hidden;
 }
 
-.card > div > a{
+.card > div > a:nth-child(1){
     text-decoration: none;
     color: black;
+}
+
+.card > div > a:nth-child(2),a:nth-child(3){
+    text-decoration: none;
 }
 

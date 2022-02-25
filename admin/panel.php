@@ -1,24 +1,19 @@
 <?php
 $admin = TRUE;
 include("../includes/header.php");
-?>
-    <div class='cuerpo'>
-        <div class="panel">
-            <div><h1><i>Listado de blogs</i></h1></div>
-                <div class="card">
-                    <div>
-                        <img src="../updates/docentes/perfil1.jpg">
-                        <h2>Titulo del blog del profe</h2>
-                        <h4>fecha</h4>
-                        <p>autor</p>
-                        <a href="eliminar.php?id=1">Eliminar</a>
-                        <a href="actualizar.php?id=1">Actualizar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+include("../includes/functions.php");
+if(!isset($_SESSION['email'])){
+    header("Location:http://localhost/pruebaPHP/");
+}
 
-<?php
-    include("../includes/footer.php");
+   if(isset($_GET['id'])){ 
+        $con = conectar();
+        $sql = "SELECT blogs.id,titulo,fecha,nombre,apellido,imagen FROM blogs INNER JOIN docentes ON docentes.id=".$_GET['id']."";
+        $query = mysqli_query($con,$sql);
+        include("../includes/blogs.php");
+   } else {
+       echo "<h1>Error de conexion</h1>";
+   }
+
+include("../includes/footer.php");
     ?>
