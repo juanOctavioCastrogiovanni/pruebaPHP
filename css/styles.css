@@ -15,23 +15,20 @@
     width: 100px;
 }
 
-.div-header{
-    width: 70%;
-}
-
 .menu {
     color:white;
 }
 
 .caja1{
+    width: 70%;
     float: left;
-    width: 49%;
 }
 
 .caja2{
     float: right;
     margin-top: 75px;
     width: 30%;
+    text-align: center;
 }
 
 .margin30{
@@ -45,16 +42,19 @@ ul{
 .panel{
     margin: auto auto;
     width: 80%;
+    overflow: hidden;
 }
 
 .cuerpo{
-    margin-top: 100px;
+    margin: 70px 0 70px 0;
+    min-height: 500px;
 }
 
-.card > img{
+.card > div > a >img{
     object-fit: none;
     width: 300px;
 	height: 300px;
+    margin-left:5px;
 }
 
 .card{
@@ -64,8 +64,272 @@ ul{
     
 }
 
-.card > h2{
+.card > div > a >h2 {
     margin-top: -30px;
 }
 
+footer{
+    clear: both;
+    height: 100px;
+    background-color: black;
+}
+
+footer > p{
+    color: white;
+    padding:40px 0 0 30px;
+}
+
+.card > div {
+    width: 80%;
+    margin: auto auto;
+}
+
+h1{
+    text-align: center;
+}
+
+.menu > ul > li > a{
+    text-decoration: none;
+    color: white;
+}
+
+.box1{
+    border: 1px solid gray;
+    
+    margin: auto auto;
+    padding:50px;
+    background-color: white;
+}
+
+@media (min-width:700px){
+    .box1{
+        width: 33.3%;
+    }
+
+    .box3{
+        width: 50%;
+        margin: auto auto;
+    }
+    
+
+    
+
+}
+
+@media (min-width:460px) and (max-width:700px){
+    .box1{
+        width: 80;
+    }
+
+    .box3{
+        width: 100%;
+        margin: auto auto;
+    }
+    
+    
+}
+
+@media (max-width:460px){
+    .box1{
+        width: 60%;
+    }
+    .fondo1{
+        padding:38px !important;
+    }
+
+    .box3{
+        width: 100%;
+        margin: auto auto;
+    }
+    
+
+}
+
+
+
+
+.margin20{
+    margin-top:20px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.fondo1{
+background-image: url("../recursos/fondo1.jpg");
+background-position-y: -200px;
+background-size: 1920px;
+min-height: 500px;
+padding: 100px;
+}
+
+.fondo2{
+    background-color: rgba(0, 0, 0, .3);
+
+    background-position-y: -200px;
+    background-size: 1920px;
+    padding: 50px;
+    }
+
+.enviar{
+    color:white;
+    background-color: black;
+}
+
+
+
+.marginL100{
+    margin-left: 100px;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+
+
+
+.principal {
+	font-family:"Open Sans", Helvetica, Arial, sans-serif;
+	font-weight:300;
+	font-size: 12px;
+	line-height:30px;
+	color:rgb(179, 179, 179);
+    
+}
+
+.size{
+    min-height: 650px;
+}
+
+.container {
+	max-width:400px;
+	width:100%;
+	margin:0 auto;
+	position:relative;
+}
+
+.contact input[type="text"], .contact input[type="email"], .contact input[type="tel"], .contact input[type="url"], .contact textarea, .contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+.contact {
+	background:#f5f5f5;
+	padding:25px;
+	margin:50px 0;
+}
+
+.contact h3 {
+	color: #F96;
+	display: block;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+.contact h4 {
+	margin:5px 0 15px;
+	display:block;
+	font-size:13px;
+}
+
+fieldset {
+	border: medium none !important;
+	margin: 0 0 10px;
+	min-width: 100%;
+	padding: 0;
+	width: 100%;
+}
+
+.contact input[type="text"], .contact input[type="email"], .contact input[type="tel"], .contact input[type="url"], .contact textarea {
+	width:93%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+}
+
+.contact input[type="text"]:hover, .contact input[type="email"]:hover, .contact input[type="tel"]:hover, .contact input[type="url"]:hover, .contact textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #AAA;
+}
+
+.contact textarea {
+	height:100px;
+	max-width:100%;
+  resize:none;
+}
+
+.contact button[type="submit"] {
+	cursor:pointer;
+	width:100%;
+	border:none;
+	background:#F96;
+	color:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+	font-size:15px;
+}
+
+.contact button[type="submit"]:hover {
+	background:#09C;
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
+}
+
+.contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+.contact input:focus, .contact textarea:focus {
+	outline:0;
+	border:1px solid #999;
+}
+
+th{
+    border: 1px solid black;
+}
+
+td{
+    border: 1px solid black;
+}
+
+table{
+    margin-left: 100px;
+}
+
+.text1{
+    width: 90%;
+    margin: auto auto;
+}
+
+.fondo3{
+    background-color: floralwhite;
+}
+
+
+.imagen1{
+    width: 100%;
+}
+
+.box3{
+    border: 1px solid black;
+}
+
+.pdf{
+    width: 70px;
+    margin-left: 25px;
+    
+}
+
+.floatL{
+    float: left;
+    margin-left: 30px;
+}
+
+.over{
+    overflow: hidden;
+}
+
+.card > div > a{
+    text-decoration: none;
+    color: black;
+}
 
