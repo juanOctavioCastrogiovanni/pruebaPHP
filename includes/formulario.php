@@ -1,17 +1,12 @@
-<?php
-$admin = TRUE;
-include("../includes/header.php");
-?>
-<div class="principal size">
-    <div class="container">  
-    <form class="contact" action="CrearBlog.php" method="POST" enctype="multipart/formdata">
+
+    <form class="contact" action="<?php echo $action;?>" method="POST" enctype="multipart/formdata">
         <h3>Complete formulario de blog</h3>
         <h4>Llene este formulario para cargar un nuevo blog a la plataforma</h4>
         <fieldset>
-        <input placeholder="Titulo" name="titulo" type="text" required autofocus>
+        <input placeholder="<?php if($action==="./crear-blog.php"){echo $row['titulo'];} else {echo "Titulo";} ?>" name="titulo" type="text" required autofocus>
         </fieldset>
         <fieldset>
-        <textarea placeholder="Descripcion" name="descripcion" required></textarea>
+        <textarea placeholder="<?php if($action==="./crear-blog.php"){echo $row['titulo'];} else {echo "Titulo";} ?>" name="descripcion" required></textarea>
         </fieldset>
         <fieldset>
         <label> Subir archivos</label>
@@ -21,10 +16,3 @@ include("../includes/header.php");
         <button  type="submit" id="contact-submit">Enviar</button>
         </fieldset>
     </form>
-    
-    </div>
-</div>
-
-<?php
-    include("../includes/footer.php");
-?>

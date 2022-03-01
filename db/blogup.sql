@@ -1,14 +1,16 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-02-2022 a las 17:34:28
--- Versión del servidor: 10.1.34-MariaDB
--- Versión de PHP: 7.2.7
+-- Tiempo de generación: 01-03-2022 a las 12:45:27
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 7.3.33
+
+CREATE DATABASE blogup;
+USE blogup;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -27,15 +29,20 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `archivos`
 --
-CREATE DATABASE blogup;
-USE blogup;
-
 
 CREATE TABLE `archivos` (
   `id` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `id_blogs` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `archivos`
+--
+
+INSERT INTO `archivos` (`id`, `nombre`, `id_blogs`) VALUES
+(1, '325216_33_69244.pdf', 1),
+(2, '325218_33_69244.pdf', 1);
 
 -- --------------------------------------------------------
 
@@ -47,9 +54,16 @@ CREATE TABLE `blogs` (
   `id` int(11) NOT NULL,
   `titulo` varchar(45) NOT NULL,
   `cuerpo` text NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `id_docentes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `titulo`, `cuerpo`, `fecha`, `id_docentes`) VALUES
+(1, 'Información acerca del 100%', 'Pueden descargar el documento que especifica la modalidad de entrega', '2022-02-24 19:30:06', 1);
 
 -- --------------------------------------------------------
 
@@ -62,6 +76,13 @@ CREATE TABLE `catedras` (
   `nombre` varchar(45) NOT NULL,
   `id_docentes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `catedras`
+--
+
+INSERT INTO `catedras` (`id`, `nombre`, `id_docentes`) VALUES
+(1, 'Discurso Audiovisual III', 1);
 
 -- --------------------------------------------------------
 
@@ -77,6 +98,13 @@ CREATE TABLE `docentes` (
   `pass` text NOT NULL,
   `imagen` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `docentes`
+--
+
+INSERT INTO `docentes` (`id`, `nombre`, `apellido`, `email`, `pass`, `imagen`) VALUES
+(1, 'Maria', 'Bettendorff', 'MB@hotmail.com', '$2y$10$mhxNmgyExHmeSjcBWqq/i.UuJVL8UEKXUQ2l9cZplhp59AupvOMoC', 'perfil1.jpg');
 
 --
 -- Índices para tablas volcadas
@@ -119,25 +147,25 @@ ALTER TABLE `docentes`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `catedras`
 --
 ALTER TABLE `catedras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `docentes`
 --
 ALTER TABLE `docentes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas

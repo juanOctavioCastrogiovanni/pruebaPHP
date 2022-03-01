@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,20 +27,17 @@
     ?>
         </div>
     <?php
-    if($admin){
+    if(isset($_SESSION['email'])){
      echo   "<div class='menu caja2'>
             <ul>
-                <li><a href='../login.php'>|&nbspINGRESAR&nbsp|</a></li>
-                <!-- <li>HOLA&nbsp|&nbsp</li>
-                <li>CERRAR SESION&nbsp|&nbsp</li> -->
-            </ul>
-        </div>";
-    } else {
-    echo    "<div class='menu caja2'>
-            <ul>
-                <li><a href='./login.php'>|&nbspINGRESAR&nbsp|</a></li>
-                <!-- <li>HOLA&nbsp|&nbsp</li>
-                <li>CERRAR SESION&nbsp|&nbsp</li> -->
+                <li style='color:white !important;'>Hola ".$_SESSION['nombre']."</li>
+                <li><a href='../includes/functions.php?action=eliminar'>|&nbspCerrar session&nbsp|</a></li>
+                </ul>
+                </div>";
+            } else {
+                echo    "<div class='menu caja2'>
+                <ul>
+                <li><a href='./formulario-login.php'>|&nbspINGRESAR&nbsp|</a></li>
             </ul>
         </div>";
     }
