@@ -3,8 +3,12 @@ $admin = FALSE;
 include("./includes/functions.php");
 include("./includes/header.php");
 if(isset($_SESSION['email'])){
+<<<<<<< HEAD
     header("Location:http://localhost/pruebaPHP
 /admin/detalle.php?id=".$_SESSION['id']."");
+=======
+    header("Location:http://localhost/pruebaPHP/admin/detalle.php?id=".$_SESSION['id']."");
+>>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
 }
 if(isset($_GET['id'])){
     $con = conectar();
@@ -22,8 +26,12 @@ if(isset($_GET['id'])){
         echo "<h1>Error de consulta</h1>";
     }
 } else {
+<<<<<<< HEAD
     header("Location: http://localhost/pruebaPHP
 ");
+=======
+    header("Location: http://localhost/pruebaPHP");
+>>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
 }
 include("./includes/detalle-blog.php");
 include("./includes/footer.php");

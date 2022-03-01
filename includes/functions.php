@@ -34,15 +34,22 @@
 					if (password_verify($contrasenia,$listaUsuarios['pass'])){
                         crearSesion($listaUsuarios['id'],$listaUsuarios['nombre'],$listaUsuarios['apellido'],$listaUsuarios['email'],$listaUsuarios['pass']);
 						return TRUE;
+<<<<<<< HEAD
 					} else {
                         return FALSE;
                     } 
+=======
+					} 
+>>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
 				} 
 			}
 		} else {
             echo "<h1>Error en la consulta en la base de datos</h1>";
         }
+<<<<<<< HEAD
         
+=======
+>>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
         return FALSE;
 	}
     function crearSesion($id,$nombre,$apellido,$email,$pass){
@@ -54,6 +61,7 @@
         $_SESSION['pass'] = $pass;
 		
 	}
+<<<<<<< HEAD
     function mostrarMensaje($cod){
 		switch ($cod) {
 			case '0x001':
@@ -71,14 +79,20 @@
         }
 		return "<p class='text-center rta-".$cod."'>".$mensaje."</p>";
 	}
+=======
+  
+>>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
     if(isset($_GET['action'])){
         session_start();
         session_unset();
         session_destroy();
         header("location: ../");
     }
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
 
 ?>

@@ -31,7 +31,11 @@
      echo   "<div class='menu caja2'>
             <ul>
                 <li style='color:white !important;'>Hola ".$_SESSION['nombre']."</li>
+<<<<<<< HEAD
                 <li><a href='../includes/functions.php?action=eliminar'>|&nbspCerrar session&nbsp|</a></li>
+=======
+                <li><a href='./includes/functions.php?action=eliminar'>|&nbspCerrar session&nbsp|</a></li>
+>>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
                 </ul>
                 </div>";
             } else {
