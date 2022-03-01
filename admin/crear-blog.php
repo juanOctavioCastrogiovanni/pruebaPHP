@@ -2,11 +2,12 @@
     include('../includes/functions.php');
     session_start();
     if($_SERVER['REQUEST_METHOD'] == "POST"){
+       
         $array = array();
-        //filtro lo que viene del formulario, solo necesito titulo y cuerpo
+        //filtro lo que viene del formulario (evitando inyeccion), solo necesito titulo y cuerpo.
         foreach ($_POST as $key => $valor){
             if($key==='titulo' || $key==='cuerpo'){
-                $array[$key]=$valor;
+                $array[$key]=htmlentities($valor);
             }
         }
         //agrego el id docente que esta en sesion, ya que el mismo esta creando el blog.

@@ -91,7 +91,38 @@
     }
 
     function procesarDocumentos($archivos){
-        
+        //recorro todos los nombres temporales
+        $nombres = array();
+        foreach($archivos['archivo']['tmp_name'] as $key => $tmp_name){
+             //Si el archivo existe
+             if($archivos['archivo']['name']['$key']){
+                $nombreArchivo= $archivos['archivo']['name']['$key'];
+                $temporal= $archivos['archivo']['tmp_name']['$key'];
+                //Si no existe el directorio lo creo con permisos especiales
+                if(!file_exists("../upload/archivos")){
+                    mkdir("../upload/archivos",0777);
+                }
+                
+                $dir = opendir("../upload/archivos");
+                $ruta = "../upload/archivos"."/".$nombreArchivo;
+                //paso el documento al directorio definitivo
+                if(move_uploaded_file($temporal,$ruta)){
+                    array_push($nombres,$nombreArchivo);
+                } else {
+                    echo "error al procesar archivo";
+                    die();
+                }
+
+                closedir($dir);
+             }
+         }
+
+         echo "<pre>";
+         var_dump($nombres);
+         echo "</pre>";
+         die();
+
+         return $nombres;
     }
     if(isset($_GET['action'])){
         session_start();
