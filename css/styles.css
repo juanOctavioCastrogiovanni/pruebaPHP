@@ -217,7 +217,7 @@ padding: 100px;
 }
 
 .contact h3 {
-	color: #F96;
+	color: darkcyan;
 	display: block;
 	font-size: 30px;
 	font-weight: 400;
@@ -262,7 +262,7 @@ fieldset {
 	cursor:pointer;
 	width:100%;
 	border:none;
-	background:#F96;
+	background:darkcyan;;
 	color:#FFF;
 	margin:0 0 5px;
 	padding:10px;
@@ -321,11 +321,18 @@ table{
 
 .floatL{
     float: left;
+}
+
+.marginl30{
     margin-left: 30px;
 }
 
 .over{
     overflow: hidden;
+}
+
+.clear{
+    clear:both;
 }
 
 .card > div > a:nth-child(1){
@@ -337,20 +344,20 @@ table{
     text-decoration: none;
 }
 
-<<<<<<< HEAD
-.rta{
-
-}
-
-.rta-0x001,.rta-0x002,.rta-0x003{
+.rta-0x001,.rta-0x002,.rta-0x003,.rta-0x006{
     color:white;
     background-color: darkred;
 
 }
 
-.rta-0x004{
+.rta-0x004,.rta-0x005{
     color: white;
     background-color: teal;
 }
-=======
->>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
+.cBlack{
+    color: black !important;
+}
+
+.cDarkcian{
+    color: darkcyan;
+}

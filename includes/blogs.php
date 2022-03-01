@@ -1,23 +1,14 @@
 <div class='cuerpo'>
     <div class="panel">
-        <div><h1><i>Listado de blogs</i></h1></div>
+        <div class="cDarkcian"><h1><i>Listado de blogs</i></h1></div>
                 <div class="card">
                     <?php while($row=mysqli_fetch_array($query,MYSQLI_ASSOC)){
                     echo "<div>";
                     if($admin){
-<<<<<<< HEAD
-                        echo "<a href='http://localhost/pruebaPHP
-/admin/detalle.php?id=".$row['id']."'>";
-                        echo "<img src='../upload/docentes/".$row['imagen']."'>";
-                    } else {
-                            echo "<a href='http://localhost/pruebaPHP
-/detalle.php?id=".$row['id']."'>";
-=======
                         echo "<a href='http://localhost/pruebaPHP/admin/detalle.php?id=".$row['id']."'>";
                         echo "<img src='../upload/docentes/".$row['imagen']."'>";
                     } else {
                             echo "<a href='http://localhost/pruebaPHP/detalle.php?id=".$row['id']."'>";
->>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
                             echo "<img src='./upload/docentes/".$row['imagen']."'>";
                         }
                         echo  "<h2>".$row['titulo']."</h2>";
@@ -26,6 +17,7 @@
 
                         echo  "<h4>$fecha</h4>";
                         echo  "<p>".$row['nombre']." ".$row['apellido']."</p>";
+                        echo  "<p>".$row['nombreCatedra']."</p>";
                     echo "</a>";
                         if($admin){
                            echo "<a href='eliminar.php?id=1'>Eliminar&nbsp</a>";

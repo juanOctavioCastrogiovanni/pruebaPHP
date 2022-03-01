@@ -29,19 +29,17 @@
     <?php
     if(isset($_SESSION['email'])){
      echo   "<div class='menu caja2'>
-            <ul>
-                <li style='color:white !important;'>Hola ".$_SESSION['nombre']."</li>
-<<<<<<< HEAD
-                <li><a href='../includes/functions.php?action=eliminar'>|&nbspCerrar session&nbsp|</a></li>
-=======
-                <li><a href='./includes/functions.php?action=eliminar'>|&nbspCerrar session&nbsp|</a></li>
->>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
+            <ul class='over'>
+                <li style='color:white !important; float:left;'>Hola ".$_SESSION['nombre']."&nbsp</li>
+                <li class='floatL'><a href='formulario-creacion.php'>|&nbspNuevo&nbsp|</a></li>
+                <li class='floatL'><a href='../includes/functions.php?action=eliminar'>&nbspCerrar session&nbsp|</a></li>
+                <li class='clear'></li>
                 </ul>
                 </div>";
             } else {
-                echo    "<div class='menu caja2'>
+                echo "<div class='menu caja2'>
                 <ul>
-                <li><a href='./formulario-login.php'>|&nbspINGRESAR&nbsp|</a></li>
+                <li><a href='./formulario-login.php'>|&nbspIngresar&nbsp|</a></li>
             </ul>
         </div>";
     }

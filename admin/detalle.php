@@ -5,7 +5,7 @@ include("../includes/header.php");
 if(isset($_GET['id'])&&isset($_SESSION['email'])){
     $con = conectar();
     //consulta informacion de blog detalle
-    $sql = "SELECT blogs.id AS id_blog,titulo,cuerpo,fecha,docentes.nombre,apellido,imagen FROM blogs INNER JOIN docentes ON blogs.id=".$_GET['id']."";
+    $sql = "SELECT blogs.id AS id_blog,titulo,cuerpo,fecha,docentes.nombre,apellido,imagen, catedras.nombre AS nombreCatedra FROM blogs INNER JOIN docentes INNER JOIN catedras ON blogs.id=".$_GET['id']."";
     $query = mysqli_query($con,$sql);
     $row = mysqli_fetch_assoc($query);
     $fecha = ordenarFecha($row['fecha']);

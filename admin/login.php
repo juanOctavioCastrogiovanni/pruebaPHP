@@ -1,7 +1,6 @@
 <?php 
     include "../includes/functions.php";
     if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['email'])){
-<<<<<<< HEAD
         //si ambos campos no se encuentran vacios
         if($_POST['email']!="" && $_POST['pass']!=""){
             if(iniciarSesion($_POST['email'],$_POST['pass'])){
@@ -19,13 +18,6 @@
                 header("location: ../formulario-login.php?rta=0x003");
             }
         }
-=======
-            if(iniciarSesion($_POST['email'],$_POST['pass'])){
-                header("location: ./panel.php?id=".$_SESSION['id']."");
-            } else {
-                header("location: ../formulario-login.php");
-            }
->>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
     }
     
 

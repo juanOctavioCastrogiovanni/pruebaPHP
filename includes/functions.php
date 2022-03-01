@@ -15,6 +15,10 @@
         $conn = mysqli_connect($host,$user,$pass);
         mysqli_select_db($conn,$db);
 
+        if (!$conn) {
+            die("Conexion fallida: " . mysqli_connect_error());
+          }
+
         return $conn;
     }
     function ordenarFecha($fechaOriginal){
@@ -34,22 +38,15 @@
 					if (password_verify($contrasenia,$listaUsuarios['pass'])){
                         crearSesion($listaUsuarios['id'],$listaUsuarios['nombre'],$listaUsuarios['apellido'],$listaUsuarios['email'],$listaUsuarios['pass']);
 						return TRUE;
-<<<<<<< HEAD
 					} else {
                         return FALSE;
                     } 
-=======
-					} 
->>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
 				} 
 			}
 		} else {
             echo "<h1>Error en la consulta en la base de datos</h1>";
         }
-<<<<<<< HEAD
         
-=======
->>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
         return FALSE;
 	}
     function crearSesion($id,$nombre,$apellido,$email,$pass){
@@ -61,7 +58,6 @@
         $_SESSION['pass'] = $pass;
 		
 	}
-<<<<<<< HEAD
     function mostrarMensaje($cod){
 		switch ($cod) {
 			case '0x001':
@@ -71,28 +67,40 @@
 				$mensaje = "El e-mail ingresado no es válido.";
 			break;
             case '0x003':
-				$mensaje = "La contraseña no puede estar vacia.";
+				$mensaje = "El campo email o contraseña estan vacios.";
 			break;
             case '0x004':
 				$mensaje = "Ha iniciado sesion correctamente.";
 			break;
+            case '0x005':
+				$mensaje = "Se ha creado el blog con exito.";
+			break;
+            case '0x006':
+				$mensaje = "Error al crear blog, por favor intentalo nuevamente.";
+			break;
         }
 		return "<p class='text-center rta-".$cod."'>".$mensaje."</p>";
 	}
-=======
-  
->>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
+    function insert($columnas,$valores){
+        $con = conectar();
+        $sql = "INSERT INTO blogs ($columnas) VALUES ('$valores');";
+        if($query = mysqli_query($con,$sql)){
+            return mysqli_insert_id($con); 
+        } 
+        return 0;
+    }
+
+    function procesarDocumentos($archivos){
+        
+    }
     if(isset($_GET['action'])){
         session_start();
         session_unset();
         session_destroy();
         header("location: ../");
     }
-<<<<<<< HEAD
 
 
 
-=======
->>>>>>> 838bec07db29d13ce7fa2c42b4a76fb15e3e4cff
 
 ?>
