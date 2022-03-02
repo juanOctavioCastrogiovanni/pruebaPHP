@@ -1,16 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 01-03-2022 a las 12:45:27
--- Versión del servidor: 10.4.22-MariaDB
+-- Servidor: localhost:3306
+-- Tiempo de generación: 02-03-2022 a las 11:32:50
+-- Versión del servidor: 10.3.32-MariaDB-cll-lve
 -- Versión de PHP: 7.3.33
 
-CREATE DATABASE blogup;
-USE blogup;
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `blogup`
+-- Base de datos: `usuarionuevo_up`
 --
 
 -- --------------------------------------------------------
@@ -41,8 +39,14 @@ CREATE TABLE `archivos` (
 --
 
 INSERT INTO `archivos` (`id`, `nombre`, `id_blogs`) VALUES
-(1, '325216_33_69244.pdf', 1),
-(2, '325218_33_69244.pdf', 1);
+(31, '50%.pdf', 16),
+(32, 'Material extra.pdf', 16),
+(33, '100%.pdf', 17),
+(34, 'Planificacion 50%.pdf', 18),
+(35, 'Planificacion 100%.pdf', 18),
+(36, 'Planificacion 100%.pdf', 19),
+(37, 'consignas extra.pdf', 20),
+(38, 'Planificacion 50%.pdf', 20);
 
 -- --------------------------------------------------------
 
@@ -63,7 +67,11 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`id`, `titulo`, `cuerpo`, `fecha`, `id_docentes`) VALUES
-(1, 'Información acerca del 100%', 'Pueden descargar el documento que especifica la modalidad de entrega', '2022-02-24 19:30:06', 1);
+(16, 'Documentos 50%', 'Para todos los que esten cursando Discurso III les dejo la planificacion del 50% por favor no olviden de leerla para la proxima clase.', '2022-03-02 13:55:38', 1),
+(17, 'Planificacion 100%', 'Para todos los que esten cursando Discurso III les dejo la planificacion del 100% por favor no olviden de leerla para la proxima clase.', '2022-03-02 14:13:06', 1),
+(18, 'Info 50%', 'Para todos los que esten cursando Discurso III les dejo la planificacion del 50% por favor no olviden de leerla para la proxima clase.', '2022-03-02 14:27:18', 3),
+(19, 'info 100% ', 'Para todos los que esten cursando Discurso III les dejo la planificacion del 100% por favor no olviden de leerla para la proxima clase.', '2022-03-02 14:27:44', 3),
+(20, '50% mas material extra', 'Para todos los que esten cursando Discurso III les dejo la planificacion del 50% por favor no olviden de leerla para la proxima clase.', '2022-03-02 14:32:02', 2);
 
 -- --------------------------------------------------------
 
@@ -82,7 +90,9 @@ CREATE TABLE `catedras` (
 --
 
 INSERT INTO `catedras` (`id`, `nombre`, `id_docentes`) VALUES
-(1, 'Discurso Audiovisual III', 1);
+(1, 'Discurso Audiovisual 1', 1),
+(2, 'Produccion I', 3),
+(3, 'Publicidad I', 2);
 
 -- --------------------------------------------------------
 
@@ -104,7 +114,9 @@ CREATE TABLE `docentes` (
 --
 
 INSERT INTO `docentes` (`id`, `nombre`, `apellido`, `email`, `pass`, `imagen`) VALUES
-(1, 'Maria', 'Bettendorff', 'MB@hotmail.com', '$2y$10$mhxNmgyExHmeSjcBWqq/i.UuJVL8UEKXUQ2l9cZplhp59AupvOMoC', 'perfil1.jpg');
+(1, 'Bettendorff', 'Maria', 'MB@hotmail.com', '$2y$10$jDO4SjFHVxzU9TYYmTlrU.lpCc08GQ/tTdOyGhUiIhZ0DACFGsgyu', 'perfil1.jpg'),
+(2, 'Paula', 'Domeniconi', 'PD@hotmail.com', '$2y$10$jDO4SjFHVxzU9TYYmTlrU.lpCc08GQ/tTdOyGhUiIhZ0DACFGsgyu', 'perfil2.jpg'),
+(3, 'Nestor', 'Borroni', 'NB@hotmail.com', '$2y$10$jDO4SjFHVxzU9TYYmTlrU.lpCc08GQ/tTdOyGhUiIhZ0DACFGsgyu', 'perfil3.jpg');
 
 --
 -- Índices para tablas volcadas
@@ -147,25 +159,25 @@ ALTER TABLE `docentes`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `catedras`
 --
 ALTER TABLE `catedras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `docentes`
 --
 ALTER TABLE `docentes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
