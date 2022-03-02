@@ -108,12 +108,35 @@
         return 0;
     }
 
-    function delete($id,$tabla){
+    function delete($id,$tabla,$condicion){
+        //si hay que borrar los archivos relacionados con un blog, tambien tengo que borrar los archivos de la ruta upload/archivos.
+        if($tabla==='archivos'){
+            $con = conectar();
+            $sql = "SELECT nombre FROM archivos WHERE $condicion=$id";
+            $query = mysqli_query($con,$sql);
+            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
+                //Como puede que haya varios documentos la accion de borrar el documento de la ruta debe hacerse varias veces.
+                borrarDocumento($row['nombre']);
+            }
+        }
+        //Una vez eliminado los archivos debo eliminar los datos de los mismos de la base de datos.
         $con = conectar();
-        $sql = "DELETE FROM $tabla WHERE id=$id;";
+        $sql = "DELETE FROM $tabla WHERE $condicion=$id;";
         if($query = mysqli_query($con,$sql)){
             return 1;
         }
+        return 0;
+    }
+    
+    function borrarDocumento($nombre){
+        //La accion de eliminar el archivo en cuestion.
+        if($nombre != ""){
+			if(unlink("../upload/archivos"."/".$nombre)){
+				return 1;
+			} else {
+				return 0;
+			}
+		} 
         return 0;
     }
 

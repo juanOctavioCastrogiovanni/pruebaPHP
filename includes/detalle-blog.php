@@ -4,8 +4,8 @@
     <img class="imagen1" src="<?php if($admin){ echo "..";} else {echo ".";} ?>/upload/docentes/<?php echo $row['imagen']?>" alt="">
    <?php  if($admin){ ?>
      <div class="text-center">
-         <a style='text-decoration:none;' href='eliminar.php?id=1'>Eliminar&nbsp</a>
-         <a style='text-decoration:none;' href='actualizar.php?id=1'>Actualizar</a>
+         <a style='text-decoration:none;' href="eliminar.php?id=<?php echo $row['id_blog']?>">Eliminar&nbsp</a>
+         <a style='text-decoration:none;' href="actualizar.php?id=<?php echo $row['id_blog']?>">Actualizar</a>
     </div>                      
     <?php } ?> 
     <h1 class="text-center cBlack"><?php echo $row['titulo']?></h2>

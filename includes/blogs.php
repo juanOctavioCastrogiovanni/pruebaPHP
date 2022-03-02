@@ -23,8 +23,8 @@
                         echo  "<p>".$row['nombreCatedra']."</p>";
                     echo "</a>";
                         if($admin){
-                           echo "<a href='eliminar.php?id=1'>Eliminar&nbsp</a>";
-                           echo "<a href='actualizar.php?id=1'>Actualizar</a>";
+                           echo "<a href='eliminar.php?id=".$row['id']."'>Eliminar&nbsp</a>";
+                           echo "<a href='actualizar.php?id=".$row['id']."'>Actualizar</a>";
                         }
                     echo "</div>";
                     }
