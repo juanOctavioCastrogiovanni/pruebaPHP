@@ -31,8 +31,8 @@
         $sql = "SELECT id, nombre, apellido, email, pass FROM docentes;";
         $query = mysqli_query($con,$sql);
 		
-		if($listaUsuarios = mysqli_fetch_array($query,MYSQLI_ASSOC)){
-			while($listaUsuarios){
+		if(mysqli_fetch_array($query,MYSQLI_ASSOC)){
+			while($listaUsuarios = mysqli_fetch_array($query,MYSQLI_ASSOC)){
 				if($listaUsuarios['email'] == $email){
 					if (password_verify($contrasenia,$listaUsuarios['pass'])){
                         crearSesion($listaUsuarios['id'],$listaUsuarios['nombre'],$listaUsuarios['apellido'],$listaUsuarios['email'],$listaUsuarios['pass']);
