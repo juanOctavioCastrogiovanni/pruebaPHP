@@ -58,8 +58,6 @@ ul{
 }
 
 .card{
-    width: 350px;
-    float: left;
     overflow: hidden;
     
 }
@@ -80,8 +78,10 @@ footer > p{
 }
 
 .card > div {
-    width: 80%;
-    margin: auto auto;
+        /* width: 80%; */
+        margin: auto auto;
+        float: left;
+        width: 350px;
 }
 
 h1{
@@ -344,13 +344,13 @@ table{
     text-decoration: none;
 }
 
-.rta-0x001,.rta-0x002,.rta-0x003,.rta-0x006{
+.rta-0x001,.rta-0x002,.rta-0x003,.rta-0x006,.rta-0x008{
     color:white;
     background-color: darkred;
 
 }
 
-.rta-0x004,.rta-0x005{
+.rta-0x004,.rta-0x005,.rta-0x007{
     color: white;
     background-color: teal;
 }

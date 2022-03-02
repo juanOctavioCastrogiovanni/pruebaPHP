@@ -17,15 +17,15 @@
         $valores = implode("','",array_values($array));
         
         //ejecuto insert, si se crea correctamente procedo a insertar las imagenes.
-      if($id = insert($columnas,$valores)){
+      if($id = insert($columnas,$valores,"blogs")){
         //Si hay archivos que procesar, los guardara en el directorio y devolvera un arreglo con sus nombres
         if($nombres = procesarDocumentos($_FILES)){
             //por cada nombre de archivo que haya procesado hara un insert en la tabla de archivos.
                 foreach($nombres as $nombre){
                     $columnas = "nombre,id_blogs";        
-                    $valores = "'$nombre','$id'";        ;
-                    insert($columnas,$valores);
-                }
+                    $valores = "$nombre','$id";
+                    $idEntrada=insert($columnas,$valores,"archivos");
+                }         
                 header("location: ./panel.php?id=".$_SESSION['id']."&rta=0x005");
             } else {    
                 header("location: ./panel.php?id=".$_SESSION['id']."&rta=0x006");

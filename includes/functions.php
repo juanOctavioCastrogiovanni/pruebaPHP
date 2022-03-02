@@ -23,9 +23,8 @@
     }
     function ordenarFecha($fechaOriginal){
         //cambia el formato del objeto date           
-    setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
-    $d = $fechaOriginal;
-    return $fecha = strftime("%d de %B de %Y");
+    $fecha = new DateTime($fechaOriginal);
+    return $fecha->format('d/m/Y');;
     }
     function iniciarSesion($email,$contrasenia){
 		$con = conectar();
@@ -78,51 +77,77 @@
             case '0x006':
 				$mensaje = "Error al crear blog, por favor intentalo nuevamente.";
 			break;
+            case '0x007':
+				$mensaje = "El blog ha sido eliminado.";
+			break;
+            case '0x008':
+				$mensaje = "El blog no ha podido ser eliminado.";
+			break;
+            
         }
 		return "<p class='text-center rta-".$cod."'>".$mensaje."</p>";
 	}
-    function insert($columnas,$valores){
+    // function insert2($columnas,$valores,$tabla){
+    //     $con = conectar();
+    //     $sql = "INSERT INTO $tabla ($columnas) VALUES ('$valores');";
+    //     echo "<pre>";
+    //                     var_dump($sql);
+    //                     echo "</pre>";
+    //                     die();
+    //     if($query = mysqli_query($con,$sql)){
+    //         return mysqli_insert_id($con); 
+    //     } 
+    //     return 0;
+    // }
+    function insert($columnas,$valores,$tabla){
         $con = conectar();
-        $sql = "INSERT INTO blogs ($columnas) VALUES ('$valores');";
+        $sql = "INSERT INTO $tabla ($columnas) VALUES ('$valores');";
         if($query = mysqli_query($con,$sql)){
             return mysqli_insert_id($con); 
         } 
         return 0;
     }
 
+    function delete($id,$tabla){
+        $con = conectar();
+        $sql = "DELETE FROM $tabla WHERE id=$id;";
+        if($query = mysqli_query($con,$sql)){
+            return 1;
+        }
+        return 0;
+    }
+
     function procesarDocumentos($archivos){
         //recorro todos los nombres temporales
         $nombres = array();
-        foreach($archivos['archivo']['tmp_name'] as $key => $tmp_name){
-             //Si el archivo existe
-             if($archivos['archivo']['name']['$key']){
-                $nombreArchivo= $archivos['archivo']['name']['$key'];
-                $temporal= $archivos['archivo']['tmp_name']['$key'];
+        $total = count($archivos['archivo']['name']);
+        for($i=0;$i<$total;$i++){
+            //Si el archivo existe
+            if($archivos['archivo']['name'][$i]){
+                $nombreArchivo= $archivos['archivo']['name'][$i];
+                $temporal= $archivos['archivo']['tmp_name'][$i];
                 //Si no existe el directorio lo creo con permisos especiales
                 if(!file_exists("../upload/archivos")){
                     mkdir("../upload/archivos",0777);
                 }
-                
                 $dir = opendir("../upload/archivos");
                 $ruta = "../upload/archivos"."/".$nombreArchivo;
-                //paso el documento al directorio definitivo
-                if(move_uploaded_file($temporal,$ruta)){
+                if(file_exists($ruta)){
                     array_push($nombres,$nombreArchivo);
+                    
                 } else {
-                    echo "error al procesar archivo";
-                    die();
-                }
-
+                //paso el documento al directorio definitivo
+                    if(move_uploaded_file($temporal,$ruta)){
+                        array_push($nombres,$nombreArchivo);
+                    } else {
+                        echo "error al procesar archivo";
+                        die();
+                    }
+            }
                 closedir($dir);
-             }
-         }
-
-         echo "<pre>";
-         var_dump($nombres);
-         echo "</pre>";
-         die();
-
-         return $nombres;
+            }
+        }
+           return $nombres;
     }
     if(isset($_GET['action'])){
         session_start();

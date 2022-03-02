@@ -10,7 +10,7 @@ if(isset($_GET['id'])&&isset($_SESSION['email'])){
     $row = mysqli_fetch_assoc($query);
     $fecha = ordenarFecha($row['fecha']);
     //consulta informacion de los archivos adjuntos en el blog
-    $sql2= "SELECT archivos.nombre FROM blogs INNER JOIN docentes INNER JOIN archivos ON blogs.id=".$_GET['id']."";
+    $sql2= "SELECT nombre FROM archivos WHERE id_blogs=".$_GET['id']."";
     $query2 = mysqli_query($con,$sql2);  
     include("../includes/detalle-blog.php");
 } else {

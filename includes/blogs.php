@@ -12,7 +12,10 @@
                             echo "<img src='./upload/docentes/".$row['imagen']."'>";
                         }
                         echo  "<h2>".$row['titulo']."</h2>";
-                        
+                        // echo "<pre>";
+                        // var_dump(ordenarFecha($row['fecha']));
+                        // echo "</pre>";
+                        // die();                       
                         $fecha = ordenarFecha($row['fecha']);
 
                         echo  "<h4>$fecha</h4>";
